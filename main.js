@@ -66,9 +66,9 @@ function printData(result, node, favPageState){
                 <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="${eachRes.image.url}" alt="Card image cap">
                 <div class="card-body">
-                <p><strong>${eachRes.name}</strong></p>
+                <h3 style="text-align: center; text-decoration: underline;"><strong>${eachRes.name}</strong></h3>
                 </div>
-                <strong>Power Stats</strong>
+                <strong>Power Statistics -</strong>
                 <ul class="list-group list-group-flush">
                     <li><strong>Combat : </strong>${eachRes.powerstats.combat}</li>
                     <li><strong>Durability : </strong>${eachRes.powerstats.durability}</li>
@@ -139,8 +139,7 @@ function loadDetail(event){
     isOnFavPage = false;
 
     detailNode.innerHTML += `
-    <label for="name">Search by Name</label>
-    <input type="text" id="name">
+    <input type="text" id="name" placeholder="Search by Name">
     `;
 
     const inpVal = document.querySelector("input");

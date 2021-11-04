@@ -15,8 +15,8 @@ nav.top-nav{
     border-radius: 5px;
 }
 
-div.left {
-    font-size: xx-large;
+nav.top-nav div.left div{
+    font-size: 3rem;
 }
 
 /* Content Holder------------------------*/
@@ -126,4 +126,37 @@ div.fav{
 
 div.fav button{
     margin: 10px;
+}
+
+@media screen and (max-width : 768px){
+
+    nav.top-nav div.left div{
+        font-size: 1.3rem;
+    }
+
+    nav.top-nav div.right button{
+        font-size: small;
+    }
+
+    div.home img{
+        width: 90%;
+    }
+
+    div.result-container{
+        margin: 30px;
+        margin-top: 50px;
+    
+        display: flex;
+        justify-content: space-between;
+    }
+
+    div.result{
+        /* background-color: red; */
+        max-width: 100px !important;
+        font-size: 0.75rem;
+    }
+
+    div.result button{
+        font-size: xx-small;
+    }
 }
