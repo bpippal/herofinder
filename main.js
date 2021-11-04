@@ -177,14 +177,17 @@ function loadDetail(event){
     async function setSearchBy(){
         searchBy = inpVal.value;
 
-        //Gather the result data
-        const resp = await fetch(`https://www.superheroapi.com/api.php/4729783740406060/search/${searchBy}`);
-        const finalResp = await resp.json();
+        if(searchBy !== ""){
+            //Gather the result data
+            const resp = await fetch(`https://www.superheroapi.com/api.php/4729783740406060/search/${searchBy}`);
+            const finalResp = await resp.json();
 
-        detailResult = finalResp.results;
+            detailResult = finalResp.results;
 
-        //Function that prints the data in the respective node content
-        printData(detailResult, resultNode, isOnFavPage);
+            //Function that prints the data in the respective node content
+            printData(detailResult, resultNode, isOnFavPage);
+        }
+        
     }
 
     inpVal.addEventListener("input", myDebounce(setSearchBy,400));
