@@ -44,6 +44,10 @@ let detailResult;
 let finalFavResult;
 let favResult = [];
 
+//LocalStorage
+let stroageString;
+let storageJson;
+let storageGetString;
 
 
 function printData(result, node, favPageState){
@@ -117,6 +121,9 @@ function printData(result, node, favPageState){
 
         favResult = finalFavResult;
 
+        stroageString = JSON.stringify(finalFavResult);
+        localStorage.setItem("storageKey", stroageString);
+
         })
     })
 
@@ -130,7 +137,8 @@ function printData(result, node, favPageState){
             event.target.parentNode.remove();
             finalFavResult.splice(index,1);
 
-            console.log(finalFavResult);
+            stroageString = JSON.stringify(finalFavResult);
+            localStorage.setItem("storageKey", stroageString);
         })
     })
     
@@ -208,10 +216,18 @@ function loadFav(event){
     homeNode.innerHTML = "";
     detailNode.innerHTML = "";
 
+    storageGetString = localStorage.getItem("storageKey");
+    const storageData = JSON.parse(storageGetString);
 
-    console.log("Fav Page",finalFavResult);
+    if(finalFavResult === undefined){
+        printData(storageData ,favNode ,isOnFavPage);    
+    }
 
-    printData(finalFavResult ,favNode ,isOnFavPage);
+    else{
+        printData(finalFavResult ,favNode ,isOnFavPage);
+    }
+
+    
 }
 
 homeBut.addEventListener("click", loadHome);
