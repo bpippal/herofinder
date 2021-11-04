@@ -107,6 +107,15 @@ function printData(result, node, favPageState){
     eachFavBut.addEventListener("click", (event) => {
         favResult.push(result[index]);
         event.target.disabled = true;
+
+        
+        //Filter out the duplicate's from favResult
+        finalFavResult = Array.from(new Set(favResult.map(a => a.id)))
+        .map(id => {
+        return favResult.find(a => a.id === id)
+        })
+
+
         })
     })
 
@@ -195,11 +204,8 @@ function loadFav(event){
     homeNode.innerHTML = "";
     detailNode.innerHTML = "";
 
-    //Filter out the duplicate's from favResult
-    finalFavResult = Array.from(new Set(favResult.map(a => a.id)))
-    .map(id => {
-    return favResult.find(a => a.id === id)
-    })
+
+    console.log("Fav Page",finalFavResult);
 
     printData(finalFavResult ,favNode ,isOnFavPage);
 }
