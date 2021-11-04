@@ -115,6 +115,7 @@ function printData(result, node, favPageState){
         return favResult.find(a => a.id === id)
         })
 
+        favResult = finalFavResult;
 
         })
     })
