@@ -54,6 +54,7 @@ function printData(result, node, favPageState){
 
     node.innerHTML = "";
 
+
     result.forEach((eachRes) => {
         node.innerHTML +=`
         <div class="card result" style="width: 10rem;">
@@ -157,8 +158,11 @@ function loadDetail(event){
     isOnFavPage = false;
 
     detailNode.innerHTML += `
-    <input type="text" id="name" placeholder="Search by Name">
+    <input type="text" id="name" placeholder="Search by Name"><br><br>
+    <h3 style="text-align: left;">Here are your Results :</h3>
     `;
+
+
 
     const inpVal = document.querySelector("input");
 
@@ -190,10 +194,15 @@ function loadDetail(event){
             const resp = await fetch(`https://www.superheroapi.com/api.php/4729783740406060/search/${searchBy}`);
             const finalResp = await resp.json();
 
-            detailResult = finalResp.results;
+            //Try and catch :DD
+            if(finalResp.response === "success"){
+                detailResult = finalResp.results;
 
-            //Function that prints the data in the respective node content
-            printData(detailResult, resultNode, isOnFavPage);
+                //Function that prints the data in the respective node content
+                printData(detailResult, resultNode, isOnFavPage);
+            }
+
+            
         }
         
     }

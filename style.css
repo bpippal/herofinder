@@ -21,11 +21,15 @@ nav.top-nav div.left div{
 
 /* Content Holder------------------------*/
 div.content-holder{
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 10px;
     width: 80%;
     margin: auto;
     margin-top: 50px;
     padding: 5px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    min-height: 35vw;
 }
 
 /* Home ----------------------------------*/
@@ -46,6 +50,10 @@ div.home-photo img{
 /* Detail---------------------------- */
 
 /* Result Node */
+
+div.detail{
+    padding: 10px;
+}
 
 div.result-container{
     margin: 30px;
@@ -160,3 +168,16 @@ div.fav button{
         font-size: xx-small;
     }
 }
+
+input {
+    background: 0;
+    border: 2px solid black;
+    border-radius: 10px;
+    outline: none;
+    width: 80vw;
+    max-width: 400px;
+    font-size: 1.5em;
+    transition: padding 0.3s 0.2s ease;
+}
+
+
