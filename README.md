@@ -5,7 +5,6 @@ Implemented modal feature, debouncing & an option to add and remove the hero fro
 <br>
 The webpage is also responsive.
 <br>
-Favourite list is persisted on page refresh and the data is over-writted when new hero's are added.
-
+Favourite list is persisted on page refresh.
 
 https://bpippal.github.io/herofinder/
