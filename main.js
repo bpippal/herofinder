@@ -230,6 +230,8 @@ function loadFav(event){
 
     if(finalFavResult === undefined){
         printData(storageData ,favNode ,isOnFavPage);    
+        favResult = storageData;
+        finalFavResult = storageData;
     }
 
     else{
