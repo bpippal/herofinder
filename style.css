@@ -30,7 +30,10 @@ div.content-holder{
 
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     min-height: 35vw;
+    
+    background:rgb(206, 255, 133)
 }
+
 
 /* Home ----------------------------------*/
 div.home{
@@ -78,14 +81,19 @@ div.card p{
 div.card {
     border: 1px solid black;
     padding: 10px;
-
+    background-color: rgb(184, 243, 184);
     margin: 10px;
 }
 
-div.result:hover{
-    transform: scale(1.15);
+div.result:hover{    
     z-index: 5;
+    transform: scale(1.15);
 }
+
+div.result{
+    transition: transform 0.5s;
+}
+
 
 /* Trying modal again */
 div.modal_ ul{
@@ -120,6 +128,8 @@ div.modal_ ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    border: 5px solid rgb(248, 135, 135);
 }
 
 
@@ -135,6 +145,8 @@ div.fav{
 div.fav button{
     margin: 10px;
 }
+
+
 
 @media screen and (max-width : 768px){
 
