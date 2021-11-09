@@ -32,7 +32,7 @@ div.content-holder{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     min-height: 35vw;
     
-    background:rgb(206, 255, 133)
+    background-color: rgb(255, 188, 163);
 }
 
 
@@ -82,7 +82,7 @@ div.card p{
 div.card {
     border: 1px solid black;
     padding: 10px;
-    background-color: rgb(184, 243, 184);
+    background-color: rgb(255, 164, 131);
     margin: 10px;
 }
 
@@ -106,7 +106,7 @@ div.modal_ ul{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 
     display: flex;
@@ -130,7 +130,7 @@ div.modal_ ul{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background-color: rgb(184, 243, 184);
+    background-color: rgb(255, 164, 131);
 }
 
 
@@ -187,7 +187,7 @@ input {
     border: 2px solid black;
     border-radius: 10px;
     outline: none;
-    width: 80vw;
+    width: 60vw;
     max-width: 400px;
     font-size: 1.5em;
     transition: padding 0.3s 0.2s ease;
