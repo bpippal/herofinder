@@ -20,6 +20,7 @@ function loadHome(){
 
     detailNode.innerHTML = "";
     favNode.innerHTML = "";
+    homeNode.innerHTML = "";
     
     homeNode.innerHTML += `
     <h6 class="display-6" style="text-decoration:underline;">Welcome to Hero Finder Webpage</h6>
@@ -65,26 +66,6 @@ function printData(result, node, favPageState){
             <button class="btn btn-dark more-info modal-btn">More info!</button>
             ${favPageState ? '<button class="btn btn-danger remove-fav">Remove from Fav</button>' : '<button class="btn btn-danger add-fav">Add to fav</button>' }
         </div>
-
-        <div class="modal-bg">
-            <div class="modal_">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="${eachRes.image.url}" alt="Card image cap">
-                <div class="card-body">
-                <h3 style="text-align: center; text-decoration: underline;"><strong>${eachRes.name}</strong></h3>
-                </div>
-                <strong>Power Statistics -</strong>
-                <ul class="list-group list-group-flush">
-                    <li><strong>Combat : </strong>${eachRes.powerstats.combat}</li>
-                    <li><strong>Durability : </strong>${eachRes.powerstats.durability}</li>
-                    <li><strong>Inteligence : </strong>${eachRes.powerstats.intelligence}</li>
-                    <li><strong>Power : </strong>${eachRes.powerstats.power}</li>
-                    <li><strong>Speed : </strong>${eachRes.powerstats.speed}</li>
-                    <li><strong>Strength : </strong>${eachRes.powerstats.strength}</li>
-                </ul>
-                <button class="btn btn-primary close">Click to close</button>
-            </div>
-        </div>
         `;
     })
 
@@ -95,13 +76,38 @@ function printData(result, node, favPageState){
     allMoreInfo.forEach((eachButInfo, index) => {
         
         eachButInfo.addEventListener("click", () => {
-            const allModal = document.querySelectorAll("div.modal-bg");
-            allModal[index].classList.add("bg-active");
 
-            const allClose = document.querySelectorAll("div.modal-bg button.close");
-            allClose[index].addEventListener("click", () => {
-                allModal[index].classList.remove("bg-active");
+            node.innerHTML += `
+            
+        <div class="modal-bg bg-active">
+        <div class="modal_">
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="${result[index].image.url}" alt="Card image cap">
+            <div class="card-body">
+            <h3 style="text-align: center; text-decoration: underline;"><strong>${result[index].name}</strong></h3>
+            </div>
+            <strong>Power Statistics -</strong>
+            <ul class="list-group list-group-flush">
+                <li><strong>Combat : </strong>${result[index].powerstats.combat}</li>
+                <li><strong>Durability : </strong>${result[index].powerstats.durability}</li>
+                <li><strong>Inteligence : </strong>${result[index].powerstats.intelligence}</li>
+                <li><strong>Power : </strong>${result[index].powerstats.power}</li>
+                <li><strong>Speed : </strong>${result[index].powerstats.speed}</li>
+                <li><strong>Strength : </strong>${result[index].powerstats.strength}</li>
+            </ul>
+            <button class="btn btn-primary close">Click to close</button>
+        </div>
+    </div>
+            `;
+
+
+            const closeBut = document.querySelector("div.modal-bg button.close");
+
+            closeBut.addEventListener("click", () => {
+                document.querySelector("div.modal-bg").remove();
+                printData(result, node, favPageState);
             })
+
         })
     })
 
@@ -154,6 +160,7 @@ function loadDetail(event){
 
     homeNode.innerHTML = "";
     favNode.innerHTML = "";
+    detailNode.innerHTML = "";
 
     isOnFavPage = false;
 
@@ -224,6 +231,7 @@ function loadFav(event){
 
     homeNode.innerHTML = "";
     detailNode.innerHTML = "";
+    favNode.innerHTML = "";
 
     storageGetString = localStorage.getItem("storageKey");
     const storageData = JSON.parse(storageGetString);
